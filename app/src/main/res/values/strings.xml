@@ -10,4 +10,10 @@
     <string name="error">Error</string>
     <string name="label_no_data">No Data</string>
 
+    <string name="ticker_screen_title">Ticker List</string>
+    <string name="sell">sell</string>
+    <string name="buy">buy</string>
+
+    <string name="ticker_calculator_screen_title">Ticker Calculator</string>
+
 </resources>

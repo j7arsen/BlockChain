@@ -7,6 +7,8 @@ import blockchain.j7arsen.com.blockchain.di.app.module.NavigationModule;
 import blockchain.j7arsen.com.blockchain.di.app.module.NetModule;
 import blockchain.j7arsen.com.blockchain.di.app.module.ThreadingModule;
 import blockchain.j7arsen.com.blockchain.di.app.module.UtilsModule;
+import blockchain.j7arsen.com.blockchain.di.exchange.ExchangeComponent;
+import blockchain.j7arsen.com.blockchain.di.main.MainComponent;
 import blockchain.j7arsen.com.blockchain.di.splash.SplashComponent;
 import dagger.Component;
 
@@ -20,5 +22,9 @@ import dagger.Component;
 public interface AppComponent {
 
     SplashComponent.Builder splashComponentBuilder();
+
+    MainComponent.Builder mainComponentBuilder();
+
+    ExchangeComponent.Builder exchangeComponentBuilder();
 
 }

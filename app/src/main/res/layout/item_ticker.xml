@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/selector_item_background"
+    android:layout_marginTop="@dimen/activity_margin_half"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <TextView
+        android:id="@+id/tv_ticker_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/activity_margin"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:textColor="@color/black"
+        android:textSize="@dimen/text_size_20"
+        tools:text = "Name" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/tv_ticker_name"
+        android:layout_marginTop="@dimen/activity_margin"
+        android:layout_marginBottom="@dimen/activity_margin"
+        android:layout_marginRight="@dimen/activity_margin"
+        android:layout_marginLeft="@dimen/activity_margin"
+        android:orientation="vertical">
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="@dimen/activity_margin_fourth">
+
+            <TextView
+                android:id="@+id/tv_ticker_sell_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/activity_margin"
+                android:layout_alignParentLeft="true"
+                android:textColor="@color/colorAccent"
+                android:textSize="@dimen/text_size_16"
+                android:text="@string/sell"/>
+
+            <TextView
+                android:id="@+id/tv_ticker_sell"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/tv_ticker_sell_title"
+                android:gravity="right"
+                android:layout_marginLeft="@dimen/activity_margin"
+                android:layout_alignParentRight="true"
+                android:textColor="@color/colorAccent"
+                android:textSize="@dimen/text_size_16"
+                tools:text="12.76 $"/>
+
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/activity_margin_fourth">
+
+            <TextView
+                android:id="@+id/tv_ticker_buy_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/activity_margin"
+                android:layout_alignParentLeft="true"
+                android:textColor="@color/colorAccent"
+                android:textSize="@dimen/text_size_16"
+                android:text="@string/buy"/>
+
+            <TextView
+                android:id="@+id/tv_ticker_buy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/tv_ticker_buy_title"
+                android:gravity="right"
+                android:layout_marginLeft="@dimen/activity_margin"
+                android:layout_alignParentRight="true"
+                android:textColor="@color/colorAccent"
+                android:textSize="@dimen/text_size_16"
+                tools:text="12.76 $"/>
+
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+
+
+</RelativeLayout>

@@ -1,6 +1,8 @@
 package blockchain.j7arsen.com.domain.model;
 
-public class TickerDomainModel {
+import java.io.Serializable;
+
+public class TickerDomainModel implements Serializable{
 
     private String name;
     private double time;

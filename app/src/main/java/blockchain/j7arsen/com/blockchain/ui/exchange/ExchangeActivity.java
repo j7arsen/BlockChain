@@ -1,10 +1,11 @@
-package blockchain.j7arsen.com.blockchain.ui.main;
+package blockchain.j7arsen.com.blockchain.ui.exchange;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 
 import com.arellomobile.mvp.presenter.InjectPresenter;
+import com.arellomobile.mvp.presenter.ProvidePresenter;
 
 import javax.inject.Inject;
 
@@ -12,27 +13,35 @@ import blockchain.j7arsen.com.blockchain.R;
 import blockchain.j7arsen.com.blockchain.base.BaseContainerActvitiy;
 import blockchain.j7arsen.com.blockchain.di.ComponentManager;
 import blockchain.j7arsen.com.blockchain.di.app.qualifier.Global;
-import blockchain.j7arsen.com.blockchain.ui.main.fragment.MainFragment;
+import blockchain.j7arsen.com.blockchain.ui.exchange.fragment.ExchangeFragment;
 import blockchain.j7arsen.com.blockchain.utils.FragmentFactory;
 import blockchain.j7arsen.com.blockchain.utils.IBackButtonListener;
+import blockchain.j7arsen.com.domain.model.TickerDomainModel;
 import ru.terrakok.cicerone.Navigator;
 import ru.terrakok.cicerone.NavigatorHolder;
 import ru.terrakok.cicerone.android.SupportFragmentNavigator;
 import ru.terrakok.cicerone.commands.Command;
 
-public class MainActivity extends BaseContainerActvitiy implements IMainActivityView {
+public class ExchangeActivity extends BaseContainerActvitiy implements IExchangeActivityView {
+
+    public static final String TICKER_DETAIL_DATA = "ExchangeActivity.TICKER_DETAIL_DATA";
 
     @Inject
     @Global
     NavigatorHolder navigatorHolder;
 
     @InjectPresenter
-    MainActivityPresenter mainActivityPresenter;
+    ExchangeActivityPresenter presenter;
+
+    @ProvidePresenter
+    ExchangeActivityPresenter provideExchangePresenter() {
+        return new ExchangeActivityPresenter(getIntent().getExtras() != null ? (TickerDomainModel) getIntent().getExtras().getSerializable(TICKER_DETAIL_DATA) : null);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        ComponentManager.getInstance().getMainComponent().inject(this);
+        ComponentManager.getInstance().getExchangeComponent().inject(this);
     }
 
     private Navigator navigator = new SupportFragmentNavigator(getSupportFragmentManager(), R.id.fl_container) {
@@ -53,7 +62,7 @@ public class MainActivity extends BaseContainerActvitiy implements IMainActivity
 
         @Override
         protected void setupFragmentTransactionAnimation(Command command, Fragment currentFragment, Fragment nextFragment, FragmentTransaction fragmentTransaction) {
-            if(!(nextFragment instanceof MainFragment)) {
+            if(!(nextFragment instanceof ExchangeFragment)) {
                 fragmentTransaction.setCustomAnimations(R.anim.screen_in, R.anim.screen_out, R.anim.screen_back_in, R.anim.screen_back_out);
             }
         }
