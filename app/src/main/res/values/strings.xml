@@ -15,5 +15,10 @@
     <string name="buy">buy</string>
 
     <string name="ticker_calculator_screen_title">Ticker Calculator</string>
+    <string name="ticker_calculator_value">Value</string>
+    <string name="bitcoin_name">BTC</string>
+    <string name="replace">Replace</string>
+
+    <string name="error_convert_data">Data convert error</string>
 
 </resources>
