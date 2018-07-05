@@ -19,7 +19,6 @@ public class TicketTypeConverter extends TypeAdapter<TickerObjectEntity> {
     public static final String BUY = "buy";
     public static final String SELL = "sell";
     public static final String SYMBOL = "symbol";
-    public static final String NAME = "NAME";
 
     @Override
     public void write(JsonWriter out, TickerObjectEntity value) throws IOException {
