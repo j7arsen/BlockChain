@@ -12,10 +12,12 @@ import javax.inject.Singleton;
 import blockchain.j7arsen.com.blockchain.app.Constants;
 import blockchain.j7arsen.com.blockchain.network.NullOnEmptyConverterFactory;
 import blockchain.j7arsen.com.blockchain.network.PrimitiveConverterFactory;
+import blockchain.j7arsen.com.blockchain.network.typeconverter.TicketTypeConverter;
 import blockchain.j7arsen.com.blockchain.utils.ResUtils;
 import blockchain.j7arsen.com.blockchain.utils.error.ErrorHandler;
 import blockchain.j7arsen.com.data.api.ApiService;
 import blockchain.j7arsen.com.data.api.Environment;
+import blockchain.j7arsen.com.data.models.net.TickerObjectEntity;
 import dagger.Module;
 import dagger.Provides;
 import okhttp3.Interceptor;
@@ -74,6 +76,7 @@ public class NetModule {
 
     private Gson initGson() {
         return new GsonBuilder()
+                .registerTypeAdapter(TickerObjectEntity.class, new TicketTypeConverter())
                 .setLenient()
                 .enableComplexMapKeySerialization()
                 .serializeNulls()
